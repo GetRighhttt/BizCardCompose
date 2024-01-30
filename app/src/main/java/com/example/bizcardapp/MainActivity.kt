@@ -9,6 +9,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -35,7 +36,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Color.Companion.LightGray
-import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -71,7 +71,6 @@ fun CreateBizCard() {
                 .height(390.dp)
                 .padding(12.dp),
             shape = RoundedCornerShape(corner = CornerSize(15.dp)),
-            colors = CardDefaults.cardColors(containerColor = White),
             elevation = CardDefaults.cardElevation(defaultElevation = 10.dp)
         ) {
             // column
@@ -138,7 +137,9 @@ fun Portfolio(data: List<String>) {
                 shape = RectangleShape,
                 elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
             ) {
-
+                Row {
+                    CreateImageProfile()
+                }
             }
         }
     }
