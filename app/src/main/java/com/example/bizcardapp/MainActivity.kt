@@ -3,6 +3,7 @@ package com.example.bizcardapp
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.shapes.Shape
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
@@ -19,10 +20,13 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.ButtonElevation
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CardElevation
 import androidx.compose.material3.Divider
+import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Shapes
@@ -81,7 +85,25 @@ fun CreateBizCard() {
                 CreateImageProfile()
                 Divider(thickness = 2.dp)
                 CreateInfo()
+                CreateButton()
             }
+        }
+    }
+}
+
+@Composable
+private fun CreateButton() {
+    Column(
+        modifier = Modifier.size(200.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        ElevatedButton(
+            onClick = { Log.d("Button-Click", "Button clicked!") },
+            modifier = Modifier
+                .padding(3.dp),
+            elevation = ButtonDefaults.buttonElevation(defaultElevation = 10.dp)
+        ) {
+            Text(text = "Create", style = MaterialTheme.typography.labelLarge)
         }
     }
 }
