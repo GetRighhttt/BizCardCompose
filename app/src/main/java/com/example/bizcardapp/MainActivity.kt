@@ -30,8 +30,10 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -59,7 +61,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun CreateBizCard() {
-    val buttonClicked = remember { mutableStateOf(false) }
+    var buttonClicked by remember { mutableStateOf(false) }
     Surface(
         modifier = Modifier
             .fillMaxWidth()
@@ -84,7 +86,7 @@ fun CreateBizCard() {
                 CreateInfo()
                 ElevatedButton(
                     onClick = {
-                        buttonClicked.value = !buttonClicked.value
+                        buttonClicked = !buttonClicked
                     },
                     modifier = Modifier
                         .padding(3.dp),
@@ -92,7 +94,7 @@ fun CreateBizCard() {
                 ) {
                     Text(text = "Create", style = MaterialTheme.typography.labelLarge)
                 }
-                if (buttonClicked.value) {
+                if (buttonClicked) {
                     Content()
                     Log.d("BUTTON", "Button Clicked")
                 } else {
