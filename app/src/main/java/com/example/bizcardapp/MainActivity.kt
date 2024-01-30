@@ -36,6 +36,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Color.Companion.LightGray
 import androidx.compose.ui.graphics.Color.Companion.White
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -130,7 +131,15 @@ fun Content() {
 fun Portfolio(data: List<String>) {
     LazyColumn {
         items(data) { item ->
-            Text(item)
+            Card(
+                modifier = Modifier
+                    .padding(13.dp)
+                    .fillMaxWidth(),
+                shape = RectangleShape,
+                elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+            ) {
+
+            }
         }
     }
 }
