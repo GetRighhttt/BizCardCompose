@@ -80,8 +80,31 @@ fun CreateBizCard() {
             ) {
                 CreateImageProfile()
                 Divider(thickness = 2.dp)
+                CreateInfo()
             }
         }
+    }
+}
+
+@Composable
+private fun CreateInfo() {
+    Column(
+        modifier = Modifier
+            .padding(5.dp),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text(
+            text = "Stefan B. - Mobile Developer",
+            style = MaterialTheme.typography.headlineSmall,
+            color = MaterialTheme.colorScheme.primary
+        )
+        Text(text = "Android Compose Developer", modifier = Modifier.padding(3.dp))
+        Text(
+            text = "@getrighhttt",
+            modifier = Modifier.padding(3.dp),
+            style = MaterialTheme.typography.labelMedium
+        )
     }
 }
 
